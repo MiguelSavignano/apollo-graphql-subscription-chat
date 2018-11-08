@@ -50,3 +50,9 @@ const server = new ApolloServer({ typeDefs, resolvers });
 server.listen().then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);
 });
+
+// backgroundJobs
+setInterval(() => {
+  console.log("backgroundJobs");
+  pubsub.publish(BOOK_ADDED, { bookAdded: 'success' });
+}, 5000)
